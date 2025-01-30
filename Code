@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffcccb;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+        }
+        h1 {
+            color: #ff4d4d;
+            font-size: 3em;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noButton {
+            background-color: #f44336;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        #message {
+            display: none;
+            font-size: 1.8em;
+            color: #ff4d4d;
+            margin-top: 20px;
+        }
+        #gifContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        #gifContainer img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my Valentine?</h1>
+    <div class="buttons">
+        <button id="yesButton" onclick="showMessage()">Yes</button>
+        <button id="noButton" onclick="moveNoButton()">No</button>
+    </div>
+
+    <div id="gifContainer">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3ZuZDJteGhoa3A0ZXN5bXZvdzAxem83ZmN2d3phZjhvcG9pY3BhNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/PxQKaNMSz1rcct8w8f/giphy.gif" alt="Pete gif">
+    </div>
+
+    <div id="message">
+        <p>Yay!!! I love you so much ❤️😘</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            // Show the gif and the message
+            document.getElementById('gifContainer').style.display = 'block';
+            document.getElementById('message').style.display = 'block';
+
+            // Disable the buttons after clicking "Yes"
+            document.getElementById('yesButton').disabled = true;
+            document.getElementById('noButton').disabled = true;
+        }
+
+        function moveNoButton() {
+            // Get the screen size
+            let screenWidth = window.innerWidth;
+            let screenHeight = window.innerHeight;
+
+            // Random position for the "No" button
+            let randomX = Math.random() * (screenWidth - 150); // Adjusted for button width
+            let randomY = Math.random() * (screenHeight - 50); // Adjusted for button height
+
+            // Move the "No" button to the random position
+            document.getElementById('noButton').style.position = 'absolute';
+            document.getElementById('noButton').style.left = randomX + 'px';
+            document.getElementById('noButton').style.top = randomY + 'px';
+        }
+    </script>
+
+</body>
+</html>
